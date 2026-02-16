@@ -28,7 +28,7 @@ async function run() {
     const seminarCollection = client.db("SeminarUserDB").collection("Users");
     await client.connect();
 
-    // CREATE
+    // CREATE DATA
     app.post("/seminar", async (req, res) => {
       const data = req?.body;
       const result = await seminarCollection.insertOne(data);
@@ -39,7 +39,7 @@ async function run() {
       });
     });
 
-    // READ
+    // READ ALL DATA
     app.get("/seminar", async (req, res) => {
       const result = await seminarCollection.find().toArray()
       res.send(result);
