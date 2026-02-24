@@ -40,7 +40,7 @@ async function run() {
     });
 
     // READ ALL DATA
-    app.get("/api/seminar", async (req, res) => {
+    app.get("seminar", async (req, res) => {
       const result = await seminarCollection.find().toArray()
       res.send(result);
     });
