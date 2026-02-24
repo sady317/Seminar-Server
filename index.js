@@ -28,7 +28,7 @@ async function run() {
     const seminarCollection = client.db("SeminarUserDB").collection("Users");
     await client.connect();
 
-    // CREATE DATA
+    // CREATE DATA-
     app.post("/seminar", async (req, res) => {
       const data = req?.body;
       const result = await seminarCollection.insertOne(data);
@@ -40,7 +40,7 @@ async function run() {
     });
 
     // READ ALL DATA
-    app.get("/seminar", async (req, res) => {
+    app.get("/api/seminar", async (req, res) => {
       const result = await seminarCollection.find().toArray()
       res.send(result);
     });
@@ -103,5 +103,8 @@ async function run() {
 run().catch(console.dir);
 
 app.listen(port, () => {
+
   console.log(`Example app listening on port http://localhost:${port}`);
 });
+
+
